@@ -191,6 +191,7 @@ public class CalculatorTest
         }
     }
 
+    @Test
     public void testInvalidI()
     {
         for (int i = 0; i < NUM_RUNS; i++)

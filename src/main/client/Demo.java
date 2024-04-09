@@ -5,8 +5,8 @@ import apps.Calculator;
 /**
  * Demo used to manually test the program.
  * 
- * @author 
- * @version 
+ * @author X
+ * @version Y
  */
 public class Demo
 {
@@ -15,7 +15,9 @@ public class Demo
      * 
      * @param args command line arguments
      */
+    @SuppressWarnings("unused")
     public static void main(String[] args) 
     {
+        Calculator c = new Calculator();
     }
 }
