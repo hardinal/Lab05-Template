@@ -1,10 +1,7 @@
 package apps;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -27,9 +24,9 @@ public class Calculator
 
     private static final int Y_LOC = 100;
 
-    private static final int WIDTH = 400;
+    private static final int WIDTH = 250;
 
-    private static final int HEIGHT  = 200;
+    private static final int HEIGHT  = 145;
 
     private static final String NAME = "rotaluclac calculator";
 
@@ -95,7 +92,7 @@ public class Calculator
      */
     private void displayFrame()
     {
-        frame.pack();
+
         frame.setVisible(true);
     }
 
@@ -122,11 +119,12 @@ public class Calculator
      */
     private void initializeResults()
     {
-        JPanel resultP = new JPanel(new BorderLayout());
+        JPanel resultP = new JPanel();
+        resultP.setBorder(new EmptyBorder(10, 10, 10, 10));
         resultLabel = new JLabel(RESULT_PREAMBLE);
         resultLabel.setName("resultLabel");
         resultP.add(resultLabel);
-        frame.add(resultP, BorderLayout.CENTER);
+        frame.add(resultP, BorderLayout.LINE_START);
 
     }
 
@@ -139,7 +137,7 @@ public class Calculator
      */
     private void initializeButtons()
     {
-        JPanel buttonP = new JPanel(new GridLayout(1, 4));
+        JPanel buttonP = new JPanel(new GridLayout(2, 2, 5, 5));
 
         JButton addButton = new JButton("ADD");
         JButton subButton = new JButton("SUB");
@@ -205,8 +203,7 @@ public class Calculator
         buttonP.add(multButton);
         buttonP.add(divButton);
 
-        frame.add(buttonP, BorderLayout.SOUTH);
-        frame.pack();
+        frame.add(buttonP, BorderLayout.PAGE_END);
     }
 
     /**
