@@ -2,6 +2,7 @@ package apps;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import java.awt.BorderLayout;
@@ -26,9 +27,9 @@ public class Calculator
 
     private static final int Y_LOC = 100;
 
-    private static final int WIDTH = 250;
+    private static final int WIDTH = 400;
 
-    private static final int HEIGHT  = 215;
+    private static final int HEIGHT  = 200;
 
     private static final String NAME = "rotaluclac calculator";
 
@@ -42,7 +43,7 @@ public class Calculator
 
     private JTextField rightOpField;
 
-    private JTextField resultLabel;
+    private JLabel resultLabel;
 
     /**
      * Calculator constructor, calls appropriate methods for
@@ -94,7 +95,7 @@ public class Calculator
      */
     private void displayFrame()
     {
-
+        frame.pack();
         frame.setVisible(true);
     }
 
@@ -121,11 +122,11 @@ public class Calculator
      */
     private void initializeResults()
     {
-        JPanel resultP = new JPanel(new GridLayout(1, 2, 5, 5));
-        resultLabel = new JTextField(5);
+        JPanel resultP = new JPanel(new BorderLayout());
+        resultLabel = new JLabel(RESULT_PREAMBLE);
         resultLabel.setName("resultLabel");
         resultP.add(resultLabel);
-        frame.add(resultP, BorderLayout.SOUTH);
+        frame.add(resultP, BorderLayout.CENTER);
 
     }
 
@@ -138,12 +139,12 @@ public class Calculator
      */
     private void initializeButtons()
     {
-        JPanel buttonP = new JPanel(new GridLayout(2, 2, 5, 5));
+        JPanel buttonP = new JPanel(new GridLayout(1, 4));
 
-        JButton addButton = new JButton("+");
-        JButton subButton = new JButton("-");
-        JButton multButton = new JButton("x");
-        JButton divButton = new JButton("÷");
+        JButton addButton = new JButton("ADD");
+        JButton subButton = new JButton("SUB");
+        JButton multButton = new JButton("MULT");
+        JButton divButton = new JButton("DIV");
 
 
         addButton.setName("addButton");
@@ -204,7 +205,8 @@ public class Calculator
         buttonP.add(multButton);
         buttonP.add(divButton);
 
-        frame.add(buttonP, BorderLayout.CENTER);
+        frame.add(buttonP, BorderLayout.SOUTH);
+        frame.pack();
     }
 
     /**
